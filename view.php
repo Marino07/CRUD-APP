@@ -19,7 +19,13 @@ include 'partials/header.php';
             <h3>View User: <b><?php echo $user['name'] ?></b>
             </h3>
         </div>
-    </div>
+<div class="card-body">
+    <a href="update.php?id=<?php echo $user['id']; ?>" class="btn btn-primary btn-sm">Update</a>
+    <form action="delete.php" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+    </form>
+</div>
     <table class="table">
         <tr>
             <th>Name:</th>
@@ -43,5 +49,7 @@ include 'partials/header.php';
                     <?php echo $user['website'] ?></a></td>
         </tr>
     </table>
+    </div>
+</div>
 </div>
 

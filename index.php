@@ -3,7 +3,9 @@ require 'users/users.php';
 $users = getUsers();
 include 'partials/header.php';
 ?>
-
+<div class="container">
+    <a href="create.php" class="btn btn-primary">Create New User</a>
+</div
 <body>
 <div class="container">
     <table>
@@ -34,9 +36,12 @@ include 'partials/header.php';
                         <?php echo $user['website'] ?></a>
                 </td>
                 <td>
-                    <a href="view.php?id=<?php echo $user['id']?>" class="btn-sm btn-primary">View</a>
-                    <a href="update.php?id=<?php echo $user['id']?>" class="btn-sm btn-primary">Update</a>
-                    <a href="delete.php?id=<?php echo $user['id']?>" class="btn-sm btn-danger">Delete</a>
+                    <a href="view.php?id=<?php echo $user['id']; ?>" class="btn btn-primary btn-sm">View</a>
+                    <a href="update.php?id=<?php echo $user['id']; ?>" class="btn btn-primary btn-sm">Update</a>
+                    <form action="delete.php" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
 
                 </td>
 
